@@ -1,12 +1,8 @@
 var mongoose = require('mongoose');
-var Parent = require('./parent');
 
+// kid schema
 // Create the kid Schema.
 var KidSchema = new mongoose.Schema({
-   _parent: {
-     type: mongoose.Schema.ObjectId,
-     ref: 'Parent'
-   },
    kidName: {
       type: String,
       required: true,
@@ -41,19 +37,25 @@ var KidSchema = new mongoose.Schema({
 });
 
 
-KidSchema.set('toJSON', {
-  transform: function(doc, ret, options) {
-    var returnJson = {
-      id: ret._id,
-      realname: ret.realname,
-      codename: ret.codename,
-      status: ret.status,
-      location: ret.location
-    };
-    return returnJson;
-  }
-});
-
-
 // Export the model.
 module.exports = mongoose.model('Kid', KidSchema);
+
+
+//
+// KidSchema.set('toJSON', {
+//   transform: function(doc, ret, options) {
+//     var returnJson = {
+//       id: ret._id,
+//       kidName: ret.kidName,
+//       color: ret.color,
+//       day1: ret.day1,
+//       day2: ret.day2,
+//       day3: ret.day3,
+//       day4: ret.day4,
+//       day5: ret.day5,
+//       day6: ret.day6,
+//       day7: ret.day7
+//     };
+//     return returnJson;
+//   }
+// });

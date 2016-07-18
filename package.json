@@ -1,28 +1,19 @@
 {
-    "name": "begood_node",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "bcrypt-nodejs": "0.0.3",
-        "body-parser": "^1.15.2",
-        "express": "^4.14.0",
-        "express-jwt": "^3.4.0",
-        "jsonwebtoken": "^5.0.5",
-        "lodash": "^4.13.1",
-        "method-override": "^2.3.6",
-        "mongo": "^0.1.0",
-        "mongoose": "^4.5.3",
-        "mongoose-seed": "^0.1.5",
-        "node-restful": "^0.2.5",
-        "resourcejs": "^1.3.0",
-        "xpress": "^2.4.6",
-        "passport": "^0.2.0",
-        "passport-local": "~0.1.6"
-    }
+  "name": "testcase",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.15.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "ejs": "~2.4.1",
+    "express": "~4.13.4",
+    "morgan": "~1.7.0",
+    "serve-favicon": "~2.3.0",
+    "mongo": "^0.1.0",
+    "mongoose": "^4.5.3"
+  }
 }
