@@ -8,7 +8,7 @@ var KidSchema = new mongoose.Schema({
       required: true,
       unique: true
    },
-   color: {
+   starColor: {
       type: String,
       required: true,
       unique: true

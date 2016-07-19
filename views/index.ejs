@@ -1,11 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>////</title>
+</head>
+
+<body>
+
+    <!-- form for module-->
+    <div id="add-kid">
+
+      <!-- get the kids -->
+        <form action="/new" method="post">
+            <label>Name:</label>
+            <input type="text" name="kid_name" />
+            <label for="color">Color:</label>
+            <select name="star_color">
+                <option value="red">red</option>
+                <option value="blue">blue</option>
+                <option value="orange">orange</option>
+                <option value="green">green</option>
+            </select>
+            <button class="add-kid" type="submit">Add</button>
+        </form>
+      <p>&nbsp</p>
+
+      <!-- hide form and start counting stars -->
+      <button class="start-chart" type="submit">Start</button>
+        <div>
+          <div class="testcolor" style="background-color: <%= kids[0].starColor %>;">
+          </div>
+            <p><%= kids[0].starColor %></p>
+            <h1><%= kids[0].kidName %></h1>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+</body>
+
 </html>
