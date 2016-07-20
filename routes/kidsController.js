@@ -74,32 +74,38 @@ router.route('/new')
 //   });
 // }
 
-router.route('/')
-  .get(function (req, res, next){
-    mongoose.model('Kid').find({}, function(error, kids){
-      if (error) {
-        return res.status(404).json({message: 'There are no kids added.'});
-      } else {
-        res.render('index', {
-          'kids' : kids
-        });
-      }
+router.route('/new')
+  .post(function(req, res, next){
+  	mongoose.model('Kid').create({
+  		kidName: req.body.kid_name,
+  		starColor: req.body.star_color,
+      day1: 0,
+      day2: 0,
+      day3: 0,
+      day4: 0,
+      day5: 0,
+      day6: 0,
+      day7: 0
+  	}, function(err, kid){
+  		if(err){
+  			return res.status(403).send({message: err.errmsg});
+  		} else {
+        res.redirect('/');
+  		}
+  	});
+  });
+
+
+router.route('/delete')
+  .delete(function (req, res, next){
+    var id = req.params.id;
+    mongoose.model('Kid').findOneAndRemove({_id: id}, function(error) {
+      if (error) res.status(404).send({message: 'There are no kids with that name'});
+      res.status(204);
     });
+    return;
   });
 
-
-
-
-
-
-function deleteKid(req, res){
-  var id = req.params.id;
-  Kid.findOneAndRemove({_id: id}, function(error) {
-    if (error) res.status(404).send({message: 'There are no kids with that name'});
-    res.status(204);
-  });
-  return;
-}
 
 
 

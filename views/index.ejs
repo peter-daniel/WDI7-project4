@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <link href='https://fonts.googleapis.com/css?family=Fredericka+the+Great' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,600italic,700,400italic,600,300italic,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.css">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -20,21 +21,23 @@
     <!-- Trigger/Open The Modal -->
     <header>
         <button id="tally-btn" class="btn-mid">Star tally</button>
-        <button id="addkids-btn" class="btn-mid" style="float:right;">Add kids</button>
+        <button id="addkids-btn" class="btn-mid" style="width: 300px;">add kids</button>
+        <button id="refresh-btn" class="btn-mid">refresh</button>
     </header>
 
 
     <!-- /////////////// EDIT MODAL START ///////////////////////-->
 
-    <div id="tally-modal" class="modal">
+    <div id="tally-modal" class="tally-modal">
 
-        <div class="modal-content">
+        <div class="tally-modal-content">
             <div class="modal-header">
                 <i class="fa fa-times fa-2x close" aria-hidden="true"></i>
             </div>
+            <div><h1 style="text-align:center;">Totals – day 1 of 7</h1></div>
             <div class="modal-body edit-kids-modal-cols">
                 <% if (kids.length < 1){ %>
-                    <h1>Add a kid</h1>
+                    <div class='start-message'>Add a kid</div>
                     <% } else { %>
                         <% for(var i = 0; i < kids.length; i++){ %>
                             <div class="edit-kids-modal-cols">
@@ -46,8 +49,9 @@
                                     <p>
                                         <%= kids[i].kidName %>
                                     </p>
-                                    <button class="delete-btn">delete</button>
-                                    <!-- each column -->
+                                    <form action="/delete">
+                                        <button class="delete-btn btn-sml" id="kids[i]._id">delete</button>
+                                    </form>
                                 </div>
                             </div>
                             <% } %>
@@ -62,38 +66,36 @@
 
 
     <!--  /////////////// ADD KIDS MODEL  ///////////////////////-->
-    <div id="addkids-modal" class="modal">
 
-        <div class="modal-content">
+
+    <div id="addkids-modal" class="addkid-modal">
+
+        <div class="addkid-modal-content">
             <div class="modal-header">
                 <i class="fa fa-times fa-2x close" aria-hidden="true"></i>
             </div>
 
-            <!-- get the kids -->
-            <!-- <div class="add-kids-view-layer"> -->
-                <div id="get-the-kids" class="flex_col">
-                    <div class="add-kids-form">
-                        <form class="flex_row" action="/new" method="post">
-                            <input type="text" name="kid_name" class='text-field' autofocus=true placeholder='Kid name' />
-                            <select name="star_color">
-                                <option disabled selected class="one">Choose a color</option>
-                                <option value="pink">pink</option>
-                                <option value="red">red</option>
-                                <option value="orange">orange</option>
-                                <option value="purple">purple</option>
-                                <option value="green">green</option>
-                                <option value="black">black</option>
-                            </select>
-                            <!-- <input type="text" name="day_1" class='text-field sml' autofocus=true placeholder='stars' /> -->
-                            <button class="btn-large " type="submit">Add</button>
-                        </form>
-                    </div>
-                    <button id="start-btn" class="btn-large btn-width-300">Start</button>
-                </div>
-
+            <div class="add-kids-form">
+                <form class="flex_row" action="/new" method="post">
+                    <input type="text" name="kid_name" class='text-field' autofocus=true placeholder='Kid name' />
+                    <select name="star_color">
+                        <option disabled selected class="one">Choose a color</option>
+                        <option value="pink">pink</option>
+                        <option value="red">red</option>
+                        <option value="orange">orange</option>
+                        <option value="purple">purple</option>
+                        <option value="green">green</option>
+                        <option value="black">black</option>
+                    </select>
+                    <!-- <input type="text" name="day_1" class='text-field sml' autofocus=true placeholder='stars' /> -->
+                    <button class="btn-large kid-add-button" type="submit">Add</button>
+                </form>
             </div>
+
+        </div>
         <!-- </div> -->
     </div>
+
 
     <!--  /////////////// ADD KIDS END  ///////////////////////-->
 
@@ -101,7 +103,7 @@
 
 
     <% if (kids.length < 1){ %>
-        <h1>Add a kid</h1>
+        <div class='start-message'>add a kid</div>
         <% } else { %>
             <div class="kids">
                 <% for(var i = 0; i < kids.length; i++){ %>
@@ -112,11 +114,10 @@
                             <% } %>
 
                                 <div class="<%= kids[i].starColor %>">
-                                    <p>
+                                    <p class="kids-name-main">
                                         <%= kids[i].kidName %>
                                     </p>
                                 </div>
-                                <button class="delete-btn">delete</button>
                     </div>
                     <% } %>
             </div>
