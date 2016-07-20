@@ -1,0 +1,87 @@
+.flex_row{
+  display: flex;
+}
+
+.fa-star{
+  font-size: 150px;
+  cursor: pointer;
+  margin-bottom: -10px;
+  color: gold;
+}
+
+/*
+*{
+	border: 1px solid green;
+}*/
+.star-ani{
+      /*transition: all .3s ease-in-out;*/
+  animation: spinner 1s 1;
+  /*animation-direction: alternate;*/
+  animation-timing-function: ease-out;
+
+}
+
+@keyframes spinner {
+  0% {
+    opacity: 0;
+    /*transform: translateY(10px);*/
+    transform: rotate(0deg); }
+
+  100% {
+    opacity: 1;
+    /*transform: translateY(100px);*/
+    transform: rotate(359deg); } }
+
+
+/*
+.block:hover .pic {
+  opacity: 1;
+  transform: translateY(0);
+}*/
+
+.kids{
+  z-index: -1;
+	display:flex;
+	justify-content: center;
+	bottom: 0;
+	left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+	position:absolute;
+	margin: 0 auto;
+	text-align:center;
+	height: 100%;
+}
+
+.kid{
+	display:flex;
+	flex-direction:column;
+	justify-content:flex-end;
+	width: 250px;
+}
+
+i{  transform: translateY(-15px);
+
+}
+
+
+.blue, .red, .orange, .green{
+  margin-top: 20px;
+cursor: pointer;
+height: 100px;
+}
+
+.blue{
+  background: blue;
+}
+
+.red{
+  background: red;
+}
+.orange{
+  background: orange;
+}
+.green{
+  background: green;
+}

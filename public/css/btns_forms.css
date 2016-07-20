@@ -1,0 +1,63 @@
+.btn-large {
+  font-family: 'Teko', sans-serif;
+  color: white;
+  background: #13747d;
+  height: 100%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 25px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-large:hover{
+  background: #0abfbc;
+}
+
+input.text-field, placeholder {
+  color: #d0cca2;
+}
+
+input.text-field, textarea {
+  font-size: 25px;
+  background : white;
+  color: black;
+}
+
+input:focus {
+  outline: none;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+.text-field {
+  width: 230px;
+  padding: 1% 2%;
+  border-radius: 5px;
+  border: 2px solid #d0cca2;
+  font-size: 15px;
+}
+
+/* select box*/
+.select-style {
+    border: 1px solid #ccc;
+    width: 220px;
+    border-radius: 3px;
+    overflow: hidden;
+    background: #fafafa url("img/icon-select.png") no-repeat 90% 50%;
+}
+
+.select-style select {
+    padding: 30px;
+    width: 200px;
+    border: none;
+    box-shadow: none;
+    background: none;
+    -webkit-appearance: none;
+}
+
+.select-style select:focus {
+    outline: none;
+}

@@ -50,30 +50,14 @@ router.route('/new')
       day7: 0
   	}, function(err, kid){
   		if(err){
-  			return res.status(403).send({message: req.body});
+  			return res.status(403).send({message: err.errmsg});
   		} else {
         res.redirect('/');
   		}
   	});
-
   });
 
 
-// router.route('#')
-//   .post(function (req, res){
-//     var kid = new Kid(req.body);
-//     kid.save(function(error){
-//       if (error) {
-//         return res.status(403).send({message: "Try again"});
-//       } else {
-//         res.render('index', {
-//           //
-//         });
-//       }
-//     });
-// });
-//
-//
 // function updateKid(req, res){
 //   var id = req.params.id;
 //   Kid.findOneAndUpdate({_id: id}, function(error, agent) {
@@ -101,15 +85,6 @@ router.route('/new')
 //   return;
 // }
 //
-//
-// module.exports = {
-//   indexKids: indexKids,
-//   addKid: addKid,
-//   updateKid: updateKid,
-//   deleteKid: deleteKid
-// };
-//
-
 
 
 // function showKid(req, res){

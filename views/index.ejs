@@ -2,46 +2,91 @@
 <html>
 
 <head>
-    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.css">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../stylesheets/style.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="../css/btns_forms.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>////</title>
 </head>
 
 <body>
 
-    <!-- form for module-->
-    <div id="add-kid">
 
-      <!-- get the kids -->
-        <form action="/new" method="post">
-            <label>Name:</label>
-            <input type="text" name="kid_name" />
-            <label for="color">Color:</label>
-            <select name="star_color">
-                <option value="red">red</option>
-                <option value="blue">blue</option>
-                <option value="orange">orange</option>
-                <option value="green">green</option>
-            </select>
-            <button class="add-kid" type="submit">Add</button>
-        </form>
-      <p>&nbsp</p>
+    <!-- MODAL -->
 
-      <!-- hide form and start counting stars -->
-      <button class="start-chart" type="submit">Start</button>
-        <div>
-          <div class="testcolor" style="background-color: <%= kids[0].starColor %>;">
-          </div>
-            <p><%= kids[0].starColor %></p>
-            <h1><%= kids[0].kidName %></h1>
+    <!-- Trigger/Open The Modal -->
+    <button id="myBtn">Open Modal</button>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <h2>Add Kids</h2>
+            </div>
+            <div class="modal-body">
+                <!-- form for module-->
+                <div>
+                    <!-- get the kids -->
+                    <form class="flex_row" action="/new" method="post">
+                        <input type="text" name="kid_name" class='text-field' autofocus=true placeholder='Kid name' />
+                        <div class="select-style">
+                            <select name="star_color">
+                                <option value="red" disabled selected>Choose a color</option>
+                                <option value="blue">blue</option>
+                                <option value="orange">orange</option>
+                                <option value="green">green</option>
+                            </select>
+                        </div>
+                        <button class="btn-large" type="submit">Add</button>
+                    </form>
+                    <p>&nbsp</p>
+
+                    <!-- hide form and start counting stars -->
+                    <button class="close btn-large" type="submit">Start</button>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <h3>Modal Footer</h3>
+            </div>
         </div>
 
     </div>
 
-    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+    <% if (kids.length < 1){ %>
+        <h1>Add a kid</h1>
+        <% } else { %>
+            <div class="kids">
+                <% for(var i = 0; i < kids.length; i++){ %>
+                    <div class="kid">
+
+                        <% for(var j = 0; j < kids.day1; j++){ %>
+                            <i class="fa fa-star fa-5x" aria-hidden="true"></i>
+                            <% } %>
+
+                                <div class="<%= kids[i].starColor %>">
+                                    <p>
+                                        <%= kids[i].kidName %>
+                                    </p>
+                                </div>
+                                <button class="delete-btn">delete</button>
+                    </div>
+                    <% } %>
+            </div>
+            <% } %>
+
+
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+                <script src="../js/script.js"></script>
+                <script src="../js/modal.js"></script>
 </body>
 
 </html>
