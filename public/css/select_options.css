@@ -6,23 +6,25 @@
     height: 0;
 }
 .select {
-  margin: 0 20px;
+    margin: 0 15px;
     cursor:pointer;
     display:inline-block;
-    width: 300px;
+    width: 260px;
     position:relative;
     font-size: 25px;
     color:black;
-    border:1px solid #ccc;
+    border:1px solid red;
+    border-radius: 5px;
 }
 .styledSelect {
-    background: #fafafa url("http://placehold.it/70x70") no-repeat 90% 50%;
+    /*background: #fafafa url("http://placehold.it/70x70") no-repeat 90% 50%;*/
     top:0;
     right:0;
     bottom:0;
     left:0;
     background-color:white;
-    padding: 30px 10px;
+    padding: 20px 10px;
+    border-radius: 5px;
 }
 .styledSelect:after {
     content:"";
@@ -44,7 +46,7 @@
     left:0;
     z-index:999;
     margin:0 0;
-    padding:30px 10px;
+    padding:0;
     list-style:none;
     border-bottom:1px solid #ccc;
 }
@@ -53,5 +55,5 @@
     margin:0 0;
 }
 .options li:hover {
-    background-color:#39f;
+    background-color:#00cdc1;
 }

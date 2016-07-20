@@ -15,6 +15,7 @@
 
 /* Modal Content */
 .modal-content {
+  height: 400px;
     position: relative;
     background-color: #fefefe;
     margin: auto;
@@ -35,10 +36,7 @@
 
 /* The Close Button */
 .close {
-    color: white;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+    color: black;
 }
 
 .close:hover,
@@ -49,6 +47,8 @@
 }
 
 .modal-header {
+  display: flex;
+  justify-content: flex-end;
     padding: 2px 16px;
     background-color: white;
     color: black;

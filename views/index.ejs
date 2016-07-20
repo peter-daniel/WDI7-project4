@@ -18,74 +18,81 @@
 
 
     <!-- Trigger/Open The Modal -->
-    <button id="myBtn">Open Modal</button>
+    <header>
+        <button id="tally-btn" class="btn-mid">Star tally</button>
+        <button id="addkids-btn" class="btn-mid" style="float:right;">Add kids</button>
+    </header>
 
 
-    <!-- /////////////// MODAL START ///////////////////////-->
+    <!-- /////////////// EDIT MODAL START ///////////////////////-->
 
-    <div id="myModal" class="modal">
-
+    <div id="tally-modal" class="modal">
 
         <div class="modal-content">
             <div class="modal-header">
-
-                <h2>Add Kids</h2>
+                <i class="fa fa-times fa-2x close" aria-hidden="true"></i>
             </div>
-            <div class="modal-body">
-
-                <div>
-
-                    <form class="flex_row" action="/new" method="post">
-                        <input type="text" name="kid_name" class='text-field' autofocus=true placeholder='Kid name' />
-                        <div id="selectbox1">
-                            <select name="star_color">
-                                <option disabled selected class="one">Choose a color&hellip;</option>
-                                <option value="blue">blue</option>
-                                <option value="orange">orange</option>
-                                <option value="green">green</option>
-                            </select>
-                        </div>
-                        <button id="add-btn" class="btn-large" type="submit">Add</button>
-                    </form>
-                    <button class="close btn-large" type="submit">Start</button>
-                    <p>&nbsp</p>
-
-                </div>
+            <div class="modal-body edit-kids-modal-cols">
+                <% if (kids.length < 1){ %>
+                    <h1>Add a kid</h1>
+                    <% } else { %>
+                        <% for(var i = 0; i < kids.length; i++){ %>
+                            <div class="edit-kids-modal-cols">
+                                <div>
+                                    <!-- each column -->
+                                    <div>
+                                        <i id="<%= kids[i].starColor %>" class="fa fa-star fa-2x" aria-hidden="true"></i>
+                                    </div>
+                                    <p>
+                                        <%= kids[i].kidName %>
+                                    </p>
+                                    <button class="delete-btn">delete</button>
+                                    <!-- each column -->
+                                </div>
+                            </div>
+                            <% } %>
             </div>
-            <div class="modal-footer">
-                <h3>Modal Footer</h3>
-            </div>
+            <% } %>
+
         </div>
+    </div>
 
     </div>
     <!--  /////////////// END MODAL  ///////////////////////-->
 
 
-    <!--  /////////////// ADD KIDS START  ///////////////////////-->
+    <!--  /////////////// ADD KIDS MODEL  ///////////////////////-->
+    <div id="addkids-modal" class="modal">
 
+        <div class="modal-content">
+            <div class="modal-header">
+                <i class="fa fa-times fa-2x close" aria-hidden="true"></i>
+            </div>
 
-    <!-- get the kids -->
-    <div class="add-kids-view-layer">
-    <div id="get-the-kids" class="flex_col">
-        <div class="add-kids-form">
-            <form class="flex_row" action="/new" method="post">
-                <input type="text" name="kid_name" class='text-field' autofocus=true placeholder='Kid name' />
-                <select name="star_color">
-                    <option disabled selected class="one">Choose a color</option>
-                    <option value="pink">pink</option>
-                    <option value="red">red</option>
-                    <option value="orange">orange</option>
-                    <option value="purple">purple</option>
-                    <option value="green">green</option>
-                    <option value="black">black</option>
-                </select>
+            <!-- get the kids -->
+            <!-- <div class="add-kids-view-layer"> -->
+                <div id="get-the-kids" class="flex_col">
+                    <div class="add-kids-form">
+                        <form class="flex_row" action="/new" method="post">
+                            <input type="text" name="kid_name" class='text-field' autofocus=true placeholder='Kid name' />
+                            <select name="star_color">
+                                <option disabled selected class="one">Choose a color</option>
+                                <option value="pink">pink</option>
+                                <option value="red">red</option>
+                                <option value="orange">orange</option>
+                                <option value="purple">purple</option>
+                                <option value="green">green</option>
+                                <option value="black">black</option>
+                            </select>
+                            <!-- <input type="text" name="day_1" class='text-field sml' autofocus=true placeholder='stars' /> -->
+                            <button class="btn-large " type="submit">Add</button>
+                        </form>
+                    </div>
+                    <button id="start-btn" class="btn-large btn-width-300">Start</button>
+                </div>
 
-                <button class="btn-large " type="submit">Add</button>
-            </form>
-        </div>
-        <button id="start-btn" class="btn-large btn-width-300">Start</button>
-    </div>
-
+            </div>
+        <!-- </div> -->
     </div>
 
     <!--  /////////////// ADD KIDS END  ///////////////////////-->

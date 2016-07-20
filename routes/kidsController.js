@@ -73,16 +73,34 @@ router.route('/new')
 //     });
 //   });
 // }
-//
-// function deleteKid(req, res){
-//   var id = req.params.id;
-//   Kid.findOneAndRemove({_id: id}, function(error) {
-//     if (error) res.status(404).send({message: 'There are no kids with that name'});
-//     res.status(204);
-//   });
-//   return;
-// }
-//
+
+router.route('/')
+  .get(function (req, res, next){
+    mongoose.model('Kid').find({}, function(error, kids){
+      if (error) {
+        return res.status(404).json({message: 'There are no kids added.'});
+      } else {
+        res.render('index', {
+          'kids' : kids
+        });
+      }
+    });
+  });
+
+
+
+
+
+
+function deleteKid(req, res){
+  var id = req.params.id;
+  Kid.findOneAndRemove({_id: id}, function(error) {
+    if (error) res.status(404).send({message: 'There are no kids with that name'});
+    res.status(204);
+  });
+  return;
+}
+
 
 
 // function showKid(req, res){

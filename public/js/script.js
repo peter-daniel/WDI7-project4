@@ -22,7 +22,7 @@ var purple = 0;
 
 
 
-$('.green').on("click", function(){
+$(document).on("click", '.green', function(){
   $('<i class="fa fa-star fa-5x" aria-hidden="true"></i>').css('color', 'green').insertBefore(this);
   green++;
   console.log(green);
@@ -41,7 +41,7 @@ $('.blue').on("click", function(){
 });
 
 $('.orange').on("click", function(){
-  $('<i class="fa fa-star fa-4x" aria-hidden="true"></i>').css('color', 'orange').addClass('star-ani').insertBefore(this);
+  $('<div class="fa fa-star fa-4x" aria-hidden="true"></div>').animate().css('color', 'orange').insertBefore(this).addClass('star-ani');
 });
 
 $('.black').on("click", function(){
