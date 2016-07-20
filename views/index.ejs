@@ -34,10 +34,10 @@
             <div class="modal-header">
                 <i class="fa fa-times fa-2x close" aria-hidden="true"></i>
             </div>
-            <div><h1 style="text-align:center;">Totals – day 1 of 7</h1></div>
+            <div><h1 style="text-align:center;">Start tally – day 1 of 7</h1></div>
             <div class="modal-body edit-kids-modal-cols">
                 <% if (kids.length < 1){ %>
-                    <div class='start-message'>Add a kid</div>
+
                     <% } else { %>
                         <% for(var i = 0; i < kids.length; i++){ %>
                             <div class="edit-kids-modal-cols">
@@ -86,6 +86,7 @@
                         <option value="purple">purple</option>
                         <option value="green">green</option>
                         <option value="black">black</option>
+                        <option value="blue">blue</option>
                     </select>
                     <!-- <input type="text" name="day_1" class='text-field sml' autofocus=true placeholder='stars' /> -->
                     <button class="btn-large kid-add-button" type="submit">Add</button>
@@ -103,7 +104,10 @@
 
 
     <% if (kids.length < 1){ %>
-        <div class='start-message'>add a kid</div>
+      <div class='start-message'>
+        <i class="fa fa-arrow-up" aria-hidden="true"></i><br>
+        Add kids and start a star chart
+      </div>
         <% } else { %>
             <div class="kids">
                 <% for(var i = 0; i < kids.length; i++){ %>

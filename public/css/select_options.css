@@ -13,7 +13,7 @@
     position:relative;
     font-size: 25px;
     color:black;
-    border:1px solid red;
+    border: 3px solid #13747d;
     border-radius: 5px;
 }
 .styledSelect {
@@ -38,10 +38,10 @@
     background-color:#eee;
 }
 .options {
-  background: white;
+  background: #f1f1f1;
     display:none;
     position:absolute;
-    top:100%;
+    top:110%;
     right:0;
     left:0;
     z-index:999;
@@ -49,10 +49,11 @@
     padding:0;
     list-style:none;
     border-bottom:1px solid #ccc;
+    box-shadow: 8px 3px 10px rgba(150, 150, 150, 0.50);
 }
 .options li {
     padding:10px 6px;
-    margin:0 0;
+    margin:15px 0;
 }
 .options li:hover {
     background-color:#00cdc1;

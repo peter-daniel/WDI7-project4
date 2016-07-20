@@ -1,6 +1,21 @@
-body, *{
+*{
   font-family: 'Open Sans', sans-serif;
   /*border: 1px solid black;*/
+}
+
+*:focus {outline:0;}
+
+body{
+  background-image: url('../background_star.png');
+  background-repeat:no-repeat;
+    background-position: 50% -15%;
+
+
+
+}
+
+.uppercase {
+    text-transform: uppercase;
 }
 
 header{
@@ -11,9 +26,8 @@ header{
 
 .start-message{
   font-family: 'Fredericka the Great', cursive;
-  font-size: 80px;
-  padding-top:20%;
-
+  font-size: 70px;
+  padding-top:10%;
   width:100%;
   text-align: center;
   margin: 0 auto;
@@ -25,11 +39,12 @@ header{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+
 }
 
 .edit-kids-modal-cols p{
-  font-size: 25px;
-  margin: 10px 0;
+  font-size: 60px;
+  margin: 10px 0 20px 0;
   font-family: 'Fredericka the Great', cursive;
 }
 
@@ -56,12 +71,13 @@ header{
   text-align: center;
   display:flex;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 60px;
 	left: 0;
   right: 0;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 60px;
+
 }
 
 .background-view-layer{
@@ -183,7 +199,7 @@ header{
 
 
 .fa-star{
-  text-shadow: 14px 3px 10px rgba(150, 150, 150, 0.50);
+  text-shadow: -8px 8px 10px rgba(150, 150, 150, 0.50);
   font-size: 130px;
   cursor: pointer;
   margin-bottom: 0;
@@ -214,6 +230,11 @@ i{
 
 
 .kids{
+  /*background: linear-gradient(red, yellow);*/
+  background-image: linear-gradient(white, BlanchedAlmond), url('../background_star.png');
+  background-repeat:no-repeat;
+  background-position: 50% 35%;
+  background-blend-mode: overlay;;
   z-index: -1;
 	display:flex;
 	justify-content: center;
@@ -237,7 +258,7 @@ i{
 }
 
 .kids-name-main{
-  margin-top: 85px;
+  margin-top: 80px;
   font-size: 45px;
   color: white;
   font-family: 'Fredericka the Great', cursive;

@@ -1,3 +1,10 @@
+
+
+$('#refresh-btn').click(function(){
+  location.reload();
+});
+
+
 $('.kid-add-button').on('click', function(){
   $('#addkids-modal').css('display', 'block');
 });
