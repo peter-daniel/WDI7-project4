@@ -1,13 +1,21 @@
+
+
 .btn-large {
-  font-family: 'Teko', sans-serif;
+  padding: 30px;
   color: white;
   background: #13747d;
-  height: 100%;
   border-radius: 5px;
   border: 1px solid #ccc;
   font-size: 25px;
   cursor: pointer;
   transition: all 0.2s ease;
+  margin-right: 10px;
+}
+
+.btn-width-300{
+  margin-top:200px;
+  width: 300px;
+  margin: 0 auto;
 }
 
 .btn-large:hover{
@@ -15,7 +23,7 @@
 }
 
 input.text-field, placeholder {
-  color: #d0cca2;
+  color: black;
 }
 
 input.text-field, textarea {
@@ -33,31 +41,10 @@ input:-webkit-autofill {
 }
 
 .text-field {
+  margin: 0 20px;
   width: 230px;
-  padding: 1% 2%;
+  padding: 30px;
   border-radius: 5px;
   border: 2px solid #d0cca2;
   font-size: 15px;
-}
-
-/* select box*/
-.select-style {
-    border: 1px solid #ccc;
-    width: 220px;
-    border-radius: 3px;
-    overflow: hidden;
-    background: #fafafa url("img/icon-select.png") no-repeat 90% 50%;
-}
-
-.select-style select {
-    padding: 30px;
-    width: 200px;
-    border: none;
-    box-shadow: none;
-    background: none;
-    -webkit-appearance: none;
-}
-
-.select-style select:focus {
-    outline: none;
 }

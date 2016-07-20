@@ -1,0 +1,57 @@
+
+.s-hidden {
+  display:none;
+    /*visibility:hidden;*/
+    padding-right:10px;
+    height: 0;
+}
+.select {
+  margin: 0 20px;
+    cursor:pointer;
+    display:inline-block;
+    width: 300px;
+    position:relative;
+    font-size: 25px;
+    color:black;
+    border:1px solid #ccc;
+}
+.styledSelect {
+    background: #fafafa url("http://placehold.it/70x70") no-repeat 90% 50%;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    background-color:white;
+    padding: 30px 10px;
+}
+.styledSelect:after {
+    content:"";
+    width:0;
+    height:0;
+    position:absolute;
+    top:6px;
+    right:6px;
+}
+.styledSelect:active, .styledSelect.active {
+    background-color:#eee;
+}
+.options {
+  background: white;
+    display:none;
+    position:absolute;
+    top:100%;
+    right:0;
+    left:0;
+    z-index:999;
+    margin:0 0;
+    padding:30px 10px;
+    list-style:none;
+    border-bottom:1px solid #ccc;
+}
+.options li {
+    padding:10px 6px;
+    margin:0 0;
+}
+.options li:hover {
+    background-color:#39f;
+}

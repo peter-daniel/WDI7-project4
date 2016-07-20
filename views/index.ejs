@@ -2,11 +2,13 @@
 <html>
 
 <head>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,600italic,700,400italic,600,300italic,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.css">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/modal.css">
     <link rel="stylesheet" href="../css/btns_forms.css">
+    <link rel="stylesheet" href="../css/select_options.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>////</title>
 </head>
@@ -14,40 +16,39 @@
 <body>
 
 
-    <!-- MODAL -->
 
     <!-- Trigger/Open The Modal -->
     <button id="myBtn">Open Modal</button>
 
-    <!-- The Modal -->
+
+    <!-- /////////////// MODAL START ///////////////////////-->
+
     <div id="myModal" class="modal">
 
-        <!-- Modal content -->
+
         <div class="modal-content">
             <div class="modal-header">
 
                 <h2>Add Kids</h2>
             </div>
             <div class="modal-body">
-                <!-- form for module-->
+
                 <div>
-                    <!-- get the kids -->
+
                     <form class="flex_row" action="/new" method="post">
                         <input type="text" name="kid_name" class='text-field' autofocus=true placeholder='Kid name' />
-                        <div class="select-style">
+                        <div id="selectbox1">
                             <select name="star_color">
-                                <option value="red" disabled selected>Choose a color</option>
+                                <option disabled selected class="one">Choose a color&hellip;</option>
                                 <option value="blue">blue</option>
                                 <option value="orange">orange</option>
                                 <option value="green">green</option>
                             </select>
                         </div>
-                        <button class="btn-large" type="submit">Add</button>
+                        <button id="add-btn" class="btn-large" type="submit">Add</button>
                     </form>
-                    <p>&nbsp</p>
-
-                    <!-- hide form and start counting stars -->
                     <button class="close btn-large" type="submit">Start</button>
+                    <p>&nbsp</p>
 
                 </div>
             </div>
@@ -57,6 +58,39 @@
         </div>
 
     </div>
+    <!--  /////////////// END MODAL  ///////////////////////-->
+
+
+    <!--  /////////////// ADD KIDS START  ///////////////////////-->
+
+
+    <!-- get the kids -->
+    <div class="add-kids-view-layer">
+    <div id="get-the-kids" class="flex_col">
+        <div class="add-kids-form">
+            <form class="flex_row" action="/new" method="post">
+                <input type="text" name="kid_name" class='text-field' autofocus=true placeholder='Kid name' />
+                <select name="star_color">
+                    <option disabled selected class="one">Choose a color</option>
+                    <option value="pink">pink</option>
+                    <option value="red">red</option>
+                    <option value="orange">orange</option>
+                    <option value="purple">purple</option>
+                    <option value="green">green</option>
+                    <option value="black">black</option>
+                </select>
+
+                <button class="btn-large " type="submit">Add</button>
+            </form>
+        </div>
+        <button id="start-btn" class="btn-large btn-width-300">Start</button>
+    </div>
+
+    </div>
+
+    <!--  /////////////// ADD KIDS END  ///////////////////////-->
+
+
 
 
     <% if (kids.length < 1){ %>
@@ -83,10 +117,14 @@
 
 
 
+
+
+
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
                 <script src="../js/script.js"></script>
                 <script src="../js/modal.js"></script>
+                <script src="../js/select_options.js"></script>
 </body>
 
 </html>
