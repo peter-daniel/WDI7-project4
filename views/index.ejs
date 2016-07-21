@@ -16,9 +16,6 @@
 
 <body>
 
-
-
-    <!-- Trigger/Open The Modal -->
     <header>
         <button id="tally-btn" class="btn-mid">Star tally</button>
         <button id="addkids-btn" class="btn-mid" style="width: 300px;">add kids</button>
@@ -32,14 +29,15 @@
 
         <div class="tally-modal-content">
             <div class="modal-header">
-                <i class="fa fa-times fa-2x close" aria-hidden="true"  ></i>
+                <i class="fa fa-times fa-2x close" aria-hidden="true"></i>
             </div>
 
-                <div class="model-heading">
-                  <p>Star tally<br>
-                  <span>
+            <div class="model-heading">
+                <p>Star tally
+                    <br>
+                    <span>
                   —— day <span>1</span> of 7 ——
-                  <span></p>
+                    <span></p>
                 </div>
             <div class="modal-body edit-kids-modal-cols">
                 <% if (kids.length < 1){ %>
@@ -79,7 +77,6 @@
 
     <!--  /////////////// ADD KIDS MODEL  ///////////////////////-->
 
-
     <div id="addkids-modal" class="addkid-modal">
 
         <div class="addkid-modal-content">
@@ -109,11 +106,10 @@
         <!-- </div> -->
     </div>
 
-
     <!--  /////////////// ADD KIDS END  ///////////////////////-->
 
 
-
+    <!--  /////////////// MAIN DISPLAY  ///////////////////////-->
 
     <% if (kids.length < 1){ %>
         <div class='start-message'>

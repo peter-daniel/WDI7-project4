@@ -19,7 +19,7 @@ router.use(methodOverride(function(req, res){
 
 
 
-/* GET home page. */
+// DISPLAY ALL
 router.route('/')
   .get(function (req, res, next){
     mongoose.model('Kid').find({}, function(error, kids){
@@ -47,24 +47,8 @@ router.route('/star/:id')
     });
   });
 
-// function updateKid(req, res){
-//   var id = req.params.id;
-//   Kid.findOneAndUpdate({_id: id}, function(error, agent) {
-//     if (error) return res.status(404).send({message: 'There are no kids with that name'});
-//     if (req.body.kidName) kid.kidName = req.body.kidName;
-//     if (req.body.starColor) kid.starColor = req.body.starColor;
-//
-//       kid.save(function(error) {
-//         if (error) {return res.status(500).send({message: "There seems to be some error in updating."});
-//       } else {
-//         res.render('pages/index', {
-//           //
-//         });
-//       }
-//     });
-//   });
-// }
 
+// CREATE NEW KID
 router.route('/new')
   .post(function(req, res, next){
   	mongoose.model('Kid').create({
@@ -87,7 +71,7 @@ router.route('/new')
   	});
   });
 
-
+// DELETE KID
 router.route('/delete/:id')
   .delete(function (req, res, next){
     var id = req.params.id;
@@ -102,6 +86,23 @@ router.route('/delete/:id')
 });
 
 
+// function updateKid(req, res){
+//   var id = req.params.id;
+//   Kid.findOneAndUpdate({_id: id}, function(error, agent) {
+//     if (error) return res.status(404).send({message: 'There are no kids with that name'});
+//     if (req.body.kidName) kid.kidName = req.body.kidName;
+//     if (req.body.starColor) kid.starColor = req.body.starColor;
+//
+//       kid.save(function(error) {
+//         if (error) {return res.status(500).send({message: "There seems to be some error in updating."});
+//       } else {
+//         res.render('pages/index', {
+//           //
+//         });
+//       }
+//     });
+//   });
+// }
 
 
 // function showKid(req, res){

@@ -1,309 +1,264 @@
-*{
-  font-family: 'Open Sans', sans-serif;
-  /*border: 1px solid black;*/
+* {
+    font-family: 'Open Sans', sans-serif;
+    /*border: 1px solid black;*/
 }
-
-*:focus {outline:0;}
-
-body{
-  background-image: url('../background_star.png');
-  background-repeat:no-repeat;
+*:focus {
+    outline: 0;
+}
+body {
+    background-image: url('../background_star.png');
+    background-repeat: no-repeat;
     background-position: 50% -15%;
-
-
-
 }
-
 .uppercase {
     text-transform: uppercase;
 }
-
-header{
-  padding:20px;
-  display: flex;
-  justify-content: space-between;
+header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
 }
-
-.start-message{
-  font-family: 'Fredericka the Great', cursive;
-  font-size: 70px;
-  padding-top:10%;
-  width:100%;
-  text-align: center;
-  margin: 0 auto;
+.start-message {
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 70px;
+    padding-top: 10%;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
 }
-
-.edit-kids-modal-cols{
-  text-align: center;
-  margin: 0 25px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-
+.edit-kids-modal-cols {
+    text-align: center;
+    margin: 0 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
-
-.edit-kids-modal-cols p{
-  font-size: 60px;
-  margin: 10px 0;
-  font-family: 'Fredericka the Great', cursive;
+.edit-kids-modal-cols p {
+    font-size: 60px;
+    margin: 10px 0;
+    font-family: 'Fredericka the Great', cursive;
 }
-
-.flex_col{
-  position: absolute;
-  display:flex;
-  flex-flow: column;
-  justify-content: center;
-  margin: 0 auto;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
-.flex-row{
-  display: flex;
-  justify-content: center;
-  margin-bottom: 15px;
-}
-
-.modal-footer-flex-row {
-  margin-top: 25px;
-  display: flex;
-  justify-content: center;
-  border-top: 4px dashed #ccc;
-
-}
-.modal-footer-flex-row button{
-  margin: 30px 10px;
-}
-
-.add-kids-form{
-  text-align: center;
-  display:flex;
-  justify-content: center;
-  margin-top: 60px;
-	left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 60px;
-
-}
-
-.background-view-layer{
-    background: #ebebeb;
-    position:absolute;
-    z-index: 3;
-  	top: 0;
-  	left: 0;
+.flex_col {
+    position: absolute;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    margin: 0 auto;
+    left: 0;
     right: 0;
     margin-left: auto;
     margin-right: auto;
-  	margin: 0 auto;
-  	text-align:center;
-  	height: 100%;
 }
-
-.add-kids-view-layer{
-  position:absolute;
-  z-index: 3;
-  top: 0;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  margin: 0 auto;
-  text-align:center;
-  height: 100%;
+.flex-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
 }
-
-.task-row{
-  height: 100px;
-  position: absolute;
-  bottom:10px;
-  left: 10px;
-  font-size: 20px;
-
+.modal-footer-flex-row {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    border-top: 4px dashed #ccc;
 }
-
-
-.blue, .red, .orange, .green, .black, .pink, .purple{
-  margin-top: -10px;
-  cursor: pointer;
-  height: 150px;
+.modal-footer-flex-row button {
+    margin: 30px 10px;
 }
-
-
-.black{
-  background-image: url('../piles_black.png');
-  background-repeat: no-repeat;
+.add-kids-form {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 60px;
 }
-.pink{
-  background-image: url('../piles_pink.png');
-  background-repeat: no-repeat;
+.background-view-layer {
+    background: #ebebeb;
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin: 0 auto;
+    text-align: center;
+    height: 100%;
 }
-.purple{
-  background-image: url('../piles_purple.png');
-  background-repeat: no-repeat;
+.add-kids-view-layer {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin: 0 auto;
+    text-align: center;
+    height: 100%;
 }
-.blue{
-  background-image: url('../piles_blue.png');
-  background-repeat: no-repeat;
+.task-row {
+    height: 100px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 20px;
 }
-.red{
-  background-image: url('../piles_red.png');
-  background-repeat: no-repeat;
+.blue, .red, .orange, .green, .black, .pink, .purple {
+    margin-top: -10px;
+    cursor: pointer;
+    height: 150px;
 }
-.orange{
-  background-image: url('../piles_orange.png');
-  background-repeat: no-repeat;
+.black {
+    background-image: url('../piles_black.png');
+    background-repeat: no-repeat;
 }
-.green{
-  background-image: url('../piles_green.png');
-  background-repeat: no-repeat;
+.pink {
+    background-image: url('../piles_pink.png');
+    background-repeat: no-repeat;
 }
-
-
-#blue, #red, #orange, #green, #black, #pink, #purple{
-  margin-top: 10px;
-  height: 150px;
-  text-shadow: 2px 3px 2px rgba(150, 150, 150, 0.50);
-  cursor: default;
+.purple {
+    background-image: url('../piles_purple.png');
+    background-repeat: no-repeat;
 }
-
-#blue p, #red p, #orange p, #green p, #black p, #pink p, #purple p{
-  font-size: 70px;
-  line-height: 15px;
-  text-shadow: 1px 1px 1px rgba(150, 150, 150, 0.50);
+.blue {
+    background-image: url('../piles_blue.png');
+    background-repeat: no-repeat;
 }
-
-.model-heading{
-  margin: 0;
-  text-align: center;
+.red {
+    background-image: url('../piles_red.png');
+    background-repeat: no-repeat;
 }
-
-.model-heading p{
-  font-size: 45px;
-  margin-top: 0;
-  font-weight: 700;
-  margin-bottom: 10px;
+.orange {
+    background-image: url('../piles_orange.png');
+    background-repeat: no-repeat;
 }
-
+.green {
+    background-image: url('../piles_green.png');
+    background-repeat: no-repeat;
+}
+#blue, #red, #orange, #green, #black, #pink, #purple {
+    margin-top: 10px;
+    height: 150px;
+    text-shadow: 2px 3px 2px rgba(150, 150, 150, 0.50);
+    cursor: default;
+}
+#blue p, #red p, #orange p, #green p, #black p, #pink p, #purple p {
+    font-size: 70px;
+    line-height: 15px;
+    text-shadow: 1px 1px 1px rgba(150, 150, 150, 0.50);
+}
+.model-heading {
+    margin: 0;
+    text-align: center;
+}
+.model-heading p {
+    font-size: 45px;
+    margin-top: 0;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
 .model-heading span {
-  color: #999;
-font-size: 30px;
+    color: #999;
+    font-size: 30px;
 }
-
 .model-heading span span {
-  color: red;
-font-size: 6  0px;
-
+    color: red;
+    font-size: 6 0px;
 }
-
-#pink{
-  color: pink;
+#pink {
+    color: pink;
 }
-
-#orange{
-  color: orange;
+#orange {
+    color: orange;
 }
-
-#red{
-  color: red;
+#red {
+    color: red;
 }
-
-#blue{
-  color: blue;
+#blue {
+    color: blue;
 }
-
-#black{
-  color: black;
+#black {
+    color: black;
 }
-
-#green{
-  color: green;
+#green {
+    color: green;
 }
-#purple{
-  color: purple;
+#purple {
+    color: purple;
 }
-
-
-
-.fa-star{
-  text-shadow: -8px 8px 10px rgba(150, 150, 150, 0.50);
-  font-size: 130px;
-  cursor: pointer;
-  margin-bottom: 0;
-  color: gold;
-  transition: all 0.2s ease-in-out;
+.fa-star {
+    text-shadow: -8px 8px 10px rgba(150, 150, 150, 0.50);
+    font-size: 130px;
+    cursor: pointer;
+    margin-bottom: 0;
+    color: gold;
+    transition: all 0.2s ease-in-out;
 }
-
 .fa-star:hover {
-  animation: spinnerDelete .5s 1;
+    animation: spinnerDelete .5s 1;
 }
-
-.star-ani{
-  animation: spinner .2s 1;
-  animation-timing-function: ease-out;
+.star-ani {
+    animation: spinner .2s 1;
+    animation-timing-function: ease-out;
 }
-
-i{
-  height: 130px;
+i {
+    height: 130px;
 }
-
 @keyframes spinnerDelete {
-  0% {
-    opacity: 0;
-    transform: rotate(0deg); }
-
-  100% {
-    opacity: 1;
-    transform: rotate(359deg); } }
-
+    0% {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(359deg);
+    }
+}
 @keyframes spinner {
-  0% {
-    opacity: 0;
-    line-height: 0px;
-    transform: rotate(0deg); }
-
-  100% {
-    opacity: 1;
-    line-height: 120px;
-    transform: rotate(359deg); } }
-
-
-.kids{
-  /*background: linear-gradient(red, yellow);*/
-  background-image: linear-gradient(white, BlanchedAlmond), url('../background_star.png');
-  background-repeat:no-repeat;
-  background-position: 50% 35%;
-  background-blend-mode: overlay;;
-  z-index: -1;
-	display:flex;
-	justify-content: center;
-	bottom: 0;
-	left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-	position:absolute;
-	margin: 0 auto;
-	text-align:center;
-	height: 100%;
+    0% {
+        opacity: 0;
+        line-height: 0px;
+        transform: rotate(0deg);
+    }
+    100% {
+        opacity: 1;
+        line-height: 120px;
+        transform: rotate(359deg);
+    }
 }
-
-.kid{
-	display:flex;
-	flex-direction:column;
-	justify-content:flex-end;
-  flex-shrink: 2;
-	width: 250px;
+.kids {
+    /*background: linear-gradient(red, yellow);*/
+    background-image: linear-gradient(white, BlanchedAlmond), url('../background_star.png');
+    background-repeat: no-repeat;
+    background-position: 50% 35%;
+    background-blend-mode: overlay;
+    ;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    margin: 0 auto;
+    text-align: center;
+    height: 100%;
 }
-
-.kids-name-main{
-  margin-top: 85px;
-  font-size: 45px;
-  color: white;
-  font-family: 'Fredericka the Great', cursive;
+.kid {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex-shrink: 2;
+    width: 250px;
+}
+.kids-name-main {
+    margin-top: 85px;
+    font-size: 45px;
+    color: white;
+    font-family: 'Fredericka the Great', cursive;
 }

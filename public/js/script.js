@@ -1,4 +1,4 @@
-// 5 star prize animation
+// check if 5 stars have been collected and trigger an animation
 function checkFive() {
    if (
       ($('i.orange-counter').length >= 5) ||
@@ -13,7 +13,7 @@ function checkFive() {
    }
 }
 
-
+// get the number of stars collected and save in variable
 var orangePut = $('<p>').text($('i.orange-counter').length);
 var redPut = $('<p>').text($('i.red-counter').length);
 var bluePut = $('<p>').text($('i.blue-counter').length);
@@ -29,6 +29,7 @@ var greenPut = $('<p>').text($('i.green-counter').length);
 // });
 //
 
+// delete kid from the modal view and effect the main interface with ajax
 $('.delete-kid').on('click', function() {
    var kidID = $(this).data('id');
    var self = this;
@@ -43,20 +44,16 @@ $('.delete-kid').on('click', function() {
 });
 
 
-$('.kid-add-button').on('click', function() {
-   $('#addkids-modal').css('display', 'block');
-});
-
-$('#start-btn').on('click', function() {
-   $('.add-kids-view-layer').css('display', 'none');
-});
-
-$(document).on("click", ".delete-btn", function() {
-   console.log("click delete");
-});
+// $('#start-btn').on('click', function() {
+//    $('.add-kids-view-layer').css('display', 'none');
+// });
+//
+// $(document).on("click", ".delete-btn", function() {
+//    console.log("click delete");
+// });
 
 
-// NEW KID
+// NEW KID AJAX
 $('#new-kid').on('submit', function(e) {
    e.preventDefault();
    // ajax call to server to create a new kid.
@@ -71,6 +68,7 @@ $('#new-kid').on('submit', function(e) {
       method: 'POST',
       data: kidData,
       success: function(data) {
+        // add new dom elements pre page refresh
          var kidContainer = $('<div>').addClass('kid').attr('data-id', data._id);
          kidContainer.append(
             $('<div>').addClass(data.starColor).append(
@@ -86,7 +84,7 @@ $('#new-kid').on('submit', function(e) {
 
 
 
-
+//
 var greenTotal = 0;
 var blackTotal = 0;
 var redTotal = 0;
@@ -101,6 +99,8 @@ var purpleTotal = 0;
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////
 
+
+// WILL DRY THE BELOW UP IN TIME!
 $('.green').on("click", function() {
    var kidID = $(this).data('id');
    var self = this;
@@ -126,9 +126,12 @@ $('.red').on("click", function() {
       url: '/star/' + kidID,
       method: 'POST',
       success: function(data) {
+        //add dom elements
          $('<i class="fa fa-star fa-4x red-counter" aria-hidden="true"></i>').css('color', 'red').addClass('star-ani').insertBefore(self);
+         // increase star count
          redTotal++;
-         checkFive()
+         // check if 5 starts have been collected
+         checkFive();
       },
       error: function(data) {
          console.log(data);
@@ -236,6 +239,6 @@ $(document).on("click", ".fa-star", function() {
 });
 
 
-$('.add-btn').on('click', function(e) {
-   e.preventDefault();
-});
+// $('.add-btn').on('click', function(e) {
+//    e.preventDefault();
+// });

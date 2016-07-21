@@ -1,22 +1,31 @@
 
+// open the tally modal
 $("#tally-btn").click(function() {
    checkAndAppend();
    $('#tally-modal').css('display', 'block');
 });
 
+// // trigger the add kids modal
+// $('.kid-add-button').on('click', function() {
+//    $('#addkids-modal').css('display', 'block');
+// });
+
+// open the add kids modal
 $("#addkids-btn").click(function() {
    $('#addkids-modal').css('display', 'block');
 });
 
+// close and refresh window to tigger database population (needs it for the screensaver plugin to work)
 $(".close").click(function() {
   //  $(this).parent().parent().parent().css('display', 'none');
   location.reload();
 
 });
 
-//check if model is clicked then close it
+// When the user clicks anywhere outside of the modal, close it
 $(window).click(function(e) {
    var target = $(e.target);
+   // check if it is the model clicked first
    if (target.is('#tally-modal')) {
       // $('#tally-modal').css('display', 'none');
       location.reload();
@@ -27,6 +36,7 @@ $(window).click(function(e) {
    }
 });
 
+// get number of stars collected for tally
 function checkAndAppend() {
   var orangePut = $('<p>').text($('i.orange-counter').length);
    var redPut = $('<p>').text($('i.red-counter').length);
@@ -36,7 +46,7 @@ function checkAndAppend() {
    var purplePut = $('<p>').text($('i.purple-counter').length);
    var greenPut = $('<p>').text($('i.green-counter').length);
    console.log(greenPut);
-   //check if total has been appended yet and if so delete it to stop replication
+   //check if total has been appended yet and if so delete it first before appending - to stop replication
    if ($('#orange').children().length > 0) {
       $('#orange').children().remove();
       $('#orange').append(orangePut);
@@ -80,5 +90,3 @@ function checkAndAppend() {
       $('#black').append(blackPut);
    }
 }
-
-// When the user clicks anywhere outside of the modal, close it
