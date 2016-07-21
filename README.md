@@ -3,10 +3,10 @@
 
 
 Initial data flow sketches
-!(screengrabs/wf_02.jpg)
+![Initial data flow sketches](./screengrabs/wf_02.jpg)
 
 Initial interface wireframe
-!(screengrabs/wf_01.jpg)
+![Initial interface wireframe](./screengrabs/wf_01.jpg)
 
 
 ## Explanation
