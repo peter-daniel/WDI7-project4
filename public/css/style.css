@@ -67,6 +67,17 @@ header{
   margin-bottom: 15px;
 }
 
+.modal-footer-flex-row {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  border-top: 4px dashed #ccc;
+
+}
+.modal-footer-flex-row button{
+  margin: 30px 10px;
+}
+
 .add-kids-form{
   text-align: center;
   display:flex;
@@ -167,7 +178,28 @@ header{
   text-shadow: 1px 1px 1px rgba(150, 150, 150, 0.50);
 }
 
+.model-heading{
+  margin: 0;
+  text-align: center;
+}
 
+.model-heading p{
+  font-size: 45px;
+  margin-top: 0;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.model-heading span {
+  color: #999;
+font-size: 30px;
+}
+
+.model-heading span span {
+  color: red;
+font-size: 6  0px;
+
+}
 
 #pink{
   color: pink;

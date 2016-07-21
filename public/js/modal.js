@@ -27,8 +27,6 @@ $(window).click(function(e) {
    }
 });
 
-
-
 function checkAndAppend() {
   var orangePut = $('<p>').text($('i.orange-counter').length);
    var redPut = $('<p>').text($('i.red-counter').length);
