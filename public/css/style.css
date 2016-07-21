@@ -236,6 +236,11 @@ font-size: 6  0px;
   cursor: pointer;
   margin-bottom: 0;
   color: gold;
+  transition: all 0.2s ease-in-out;
+}
+
+.fa-star:hover {
+  animation: spinnerDelete .5s 1;
 }
 
 .star-ani{
@@ -247,17 +252,24 @@ i{
   height: 130px;
 }
 
-@keyframes spinner {
+@keyframes spinnerDelete {
   0% {
     opacity: 0;
-    transform: scale(.5);
-    transform: scale(.2);
     transform: rotate(0deg); }
 
   100% {
     opacity: 1;
-    transform: scale(1);
-    transform: scale(1);
+    transform: rotate(359deg); } }
+
+@keyframes spinner {
+  0% {
+    opacity: 0;
+    line-height: 0px;
+    transform: rotate(0deg); }
+
+  100% {
+    opacity: 1;
+    line-height: 120px;
     transform: rotate(359deg); } }
 
 

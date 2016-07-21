@@ -1,7 +1,33 @@
-$('#refresh-btn').click(function() {
-   location.reload();
-});
+// 5 star prize animation
+function checkFive() {
+   if (
+      ($('i.orange-counter').length >= 5) ||
+      ($('i.red-counter').length >= 5) ||
+      ($('i.blue-counter').length >= 5) ||
+      ($('i.pink-counter').length >= 5) ||
+      ($('i.black-counter').length >= 5) ||
+      ($('i.purple-counter').length >= 5) ||
+      ($('i.green-counter').length >= 5)
+   ) {
+      console.log("yay");
+   }
+}
 
+
+var orangePut = $('<p>').text($('i.orange-counter').length);
+var redPut = $('<p>').text($('i.red-counter').length);
+var bluePut = $('<p>').text($('i.blue-counter').length);
+var pinkPut = $('<p>').text($('i.pink-counter').length);
+var blackPut = $('<p>').text($('i.black-counter').length);
+var purplePut = $('<p>').text($('i.purple-counter').length);
+var greenPut = $('<p>').text($('i.green-counter').length);
+
+
+
+// $('#refresh-btn').click(function() {
+//    location.reload();
+// });
+//
 
 $('.delete-kid').on('click', function() {
    var kidID = $(this).data('id');
@@ -45,12 +71,12 @@ $('#new-kid').on('submit', function(e) {
       method: 'POST',
       data: kidData,
       success: function(data) {
-        var kidContainer = $('<div>').addClass('kid').attr('data-id', data._id);
-        kidContainer.append(
-          $('<div>').addClass(data.starColor).append(
-            $('<p>').addClass('kids-name-main').text(data.kidName)
-          )
-        );
+         var kidContainer = $('<div>').addClass('kid').attr('data-id', data._id);
+         kidContainer.append(
+            $('<div>').addClass(data.starColor).append(
+               $('<p>').addClass('kids-name-main').text(data.kidName)
+            )
+         );
          $('.kids').append(kidContainer);
 
          console.log(data);
@@ -84,6 +110,7 @@ $('.green').on("click", function() {
       success: function(data) {
          $('<i class="fa fa-star fa-4x green-counter" aria-hidden="true"></i>').css('color', 'green').addClass('star-ani').insertBefore(self);
          redTotal++;
+
       },
       error: function(data) {
          console.log(data);
@@ -101,6 +128,7 @@ $('.red').on("click", function() {
       success: function(data) {
          $('<i class="fa fa-star fa-4x red-counter" aria-hidden="true"></i>').css('color', 'red').addClass('star-ani').insertBefore(self);
          redTotal++;
+         checkFive()
       },
       error: function(data) {
          console.log(data);
