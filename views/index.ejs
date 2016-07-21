@@ -22,7 +22,7 @@
     <header>
         <button id="tally-btn" class="btn-mid">Star tally</button>
         <button id="addkids-btn" class="btn-mid" style="width: 300px;">add kids</button>
-        <button id="refresh-btn" class="btn-mid">refresh</button>
+        <!-- <button id="refresh-btn" class="btn-mid">refresh</button> -->
     </header>
 
 
@@ -34,7 +34,13 @@
             <div class="modal-header">
                 <i class="fa fa-times fa-2x close" aria-hidden="true"></i>
             </div>
-            <div><h1 style="text-align:center;">Star tally – day 1 of 7</h1></div>
+
+                <div class="model-heading">
+                  Star tally<br>
+                  <span>
+                  day 1 of 7
+                  <span>
+                </div>
             <div class="modal-body edit-kids-modal-cols">
                 <% if (kids.length < 1){ %>
 
@@ -102,17 +108,17 @@
 
 
     <% if (kids.length < 1){ %>
-      <div class='start-message'>
-        <i class="fa fa-arrow-up" aria-hidden="true"></i><br>
-        Add kids and start a star chart
-      </div>
+        <div class='start-message'>
+            <i style="transform: rotate(50deg); margin-left: 30%;"class="fa fa-arrow-up fa-2x" aria-hidden="true"></i>
+            <br> Add kids and start staring
+        </div>
         <% } else { %>
             <div class="kids">
                 <% for(var i = 0; i < kids.length; i++){ %>
                     <div class="kid" data-id="<%= kids[i]._id %>">
 
                         <% for(var j = 0; j < kids[i].day1; j++){ %>
-                            <i data-id="<%= kids[i]._id %>" class="fa fa-star fa-5x" style="color: <%=kids[i].starColor %>" aria-hidden="true"></i>
+                            <i data-id="<%= kids[i]._id %>" class="fa fa-star fa-5x <%= kids[i].starColor %>-counter" style="color: <%=kids[i].starColor %>" aria-hidden="true"></i>
                             <% } %>
 
                                 <div data-id="<%= kids[i]._id %>" class="<%= kids[i].starColor %>">

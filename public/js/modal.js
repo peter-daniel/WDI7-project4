@@ -9,30 +9,35 @@ $("#addkids-btn").click(function() {
 });
 
 $(".close").click(function() {
-   $(this).parent().parent().parent().css('display', 'none');
+  //  $(this).parent().parent().parent().css('display', 'none');
+  location.reload();
+
 });
 
 //check if model is clicked then close it
 $(window).click(function(e) {
    var target = $(e.target);
    if (target.is('#tally-modal')) {
-      $('#tally-modal').css('display', 'none');
+      // $('#tally-modal').css('display', 'none');
+      location.reload();
    }
    if (target.is('#addkids-modal')) {
-      $('#addkids-modal').css('display', 'none');
+      // $('#addkids-modal').css('display', 'none');
+      location.reload();
    }
 });
 
 
 
 function checkAndAppend() {
-   var orangePut = $('<p>').text(orangeTotal);
-   var redPut = $('<p>').text(redTotal);
-   var bluePut = $('<p>').text(blueTotal);
-   var pinkPut = $('<p>').text(pinkTotal);
-   var blackPut = $('<p>').text(blackTotal);
-   var purplePut = $('<p>').text(purpleTotal);
-   var greenPut = $('<p>').text(greenTotal);
+  var orangePut = $('<p>').text($('i.orange-counter').length);
+   var redPut = $('<p>').text($('i.red-counter').length);
+   var bluePut = $('<p>').text($('i.blue-counter').length);
+   var pinkPut = $('<p>').text($('i.pink-counter').length);
+   var blackPut = $('<p>').text($('i.black-counter').length);
+   var purplePut = $('<p>').text($('i.purple-counter').length);
+   var greenPut = $('<p>').text($('i.green-counter').length);
+   console.log(greenPut);
    //check if total has been appended yet and if so delete it to stop replication
    if ($('#orange').children().length > 0) {
       $('#orange').children().remove();

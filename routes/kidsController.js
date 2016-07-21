@@ -7,6 +7,7 @@ var methodOverride = require('method-override');
 
 
 router.use(bodyParser.urlencoded({ extended: true }));
+router.use(bodyParser.json());
 router.use(methodOverride(function(req, res){
       if (req.body && typeof req.body === 'object' && '_method' in req.body) {
         // look in urlencoded POST bodies and delete it
@@ -33,36 +34,6 @@ router.route('/')
   });
 
 
-// creat a kid
-router.route('/new')
-  .post(function(req, res, next){
-  	mongoose.model('Kid').create({
-  		kidName: req.body.kid_name,
-  		starColor: req.body.star_color,
-      day1: 0,
-      day2: 0,
-      day3: 0,
-      day4: 0,
-      day5: 0,
-      day6: 0,
-      day7: 0
-  	}, function(err, kid){
-  		if(err){
-  			return res.status(403).send({message: err.errmsg});
-  		} else {
-        res.redirect('/');
-  		}
-  	});
-  });
-
-//DELETE ALL kids
-// mongoose.model('Kid').find({}).remove().exec(function(err, data){
-// console.log(data);
-// });
-
-
-
-
 router.route('/star/:id')
   .post(function(req, res, next){
     mongoose.model('Kid').findOneAndUpdate({_id: req.params.id}, { $inc: { day1: 1 }}, function(err, kid){
@@ -74,7 +45,7 @@ router.route('/star/:id')
       if(err) res.status(500).json(err);
       res.status(200).json({success: true});
     });
-  })
+  });
 
 // function updateKid(req, res){
 //   var id = req.params.id;
@@ -108,9 +79,10 @@ router.route('/new')
       day7: 0
   	}, function(err, kid){
   		if(err){
-  			return res.status(403).send({message: err.errmsg});
+  			res.status(403).send({message: err.errmsg});
   		} else {
-        res.redirect('/');
+        console.log(kid);
+        res.json(kid);
   		}
   	});
   });
