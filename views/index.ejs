@@ -34,7 +34,7 @@
             <div class="modal-header">
                 <i class="fa fa-times fa-2x close" aria-hidden="true"></i>
             </div>
-            <div><h1 style="text-align:center;">Start tally – day 1 of 7</h1></div>
+            <div><h1 style="text-align:center;">Star tally – day 1 of 7</h1></div>
             <div class="modal-body edit-kids-modal-cols">
                 <% if (kids.length < 1){ %>
 
@@ -49,9 +49,7 @@
                                     <p>
                                         <%= kids[i].kidName %>
                                     </p>
-                                    <form action="/delete">
-                                        <button class="delete-btn btn-sml" id="kids[i]._id">delete</button>
-                                    </form>
+                                    <button data-id="<%= kids[i]._id %>" class="delete-kid delete-btn btn-sml" id="kids[i]._id">delete</button>
                                 </div>
                             </div>
                             <% } %>
@@ -76,7 +74,7 @@
             </div>
 
             <div class="add-kids-form">
-                <form class="flex_row" action="/new" method="post">
+                <form id="new-kid" class="flex_row" action="/new" method="post">
                     <input type="text" name="kid_name" class='text-field' autofocus=true placeholder='Kid name' />
                     <select name="star_color">
                         <option disabled selected class="one">Choose a color</option>
@@ -111,13 +109,13 @@
         <% } else { %>
             <div class="kids">
                 <% for(var i = 0; i < kids.length; i++){ %>
-                    <div class="kid">
+                    <div class="kid" data-id="<%= kids[i]._id %>">
 
-                        <% for(var j = 0; j < kids.day1; j++){ %>
-                            <i class="fa fa-star fa-5x" aria-hidden="true"></i>
+                        <% for(var j = 0; j < kids[i].day1; j++){ %>
+                            <i data-id="<%= kids[i]._id %>" class="fa fa-star fa-5x" style="color: <%=kids[i].starColor %>" aria-hidden="true"></i>
                             <% } %>
 
-                                <div class="<%= kids[i].starColor %>">
+                                <div data-id="<%= kids[i]._id %>" class="<%= kids[i].starColor %>">
                                     <p class="kids-name-main">
                                         <%= kids[i].kidName %>
                                     </p>

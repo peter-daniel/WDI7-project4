@@ -5,6 +5,20 @@ $('#refresh-btn').click(function(){
 });
 
 
+$('.delete-kid').on('click', function(){
+  var kidID = $(this).data('id');
+  var self = this;
+  $.ajax({
+    url: '/delete/'+kidID,
+    method: 'DELETE',
+    success: function(data){
+      $(self).parent().remove();
+      $('.kid[data-id="'+kidID+'"]').remove();
+    }
+  });
+});
+
+
 $('.kid-add-button').on('click', function(){
   $('#addkids-modal').css('display', 'block');
 });
@@ -15,8 +29,7 @@ $('#start-btn').on('click', function(){
 
 $(document).on("click", ".delete-btn", function(){
   console.log("click delete");
-      $(this).parent().remove();
-    });
+});
 
 var greenTotal  = 0;
 var blackTotal = 0;
@@ -34,16 +47,35 @@ var purpleTotal = 0;
 
 
 
-$(document).on("click", '.green', function(){
-  $('<i class="fa fa-star fa-5x" aria-hidden="true"></i>').css('color', 'green').addClass('star-ani').insertBefore(this);
-  greenTotal++;
-  console.log(greenTotal);
+$('.green').on("click", function(){
+  var kidID = $(this).data('id');
+  var self = this;
+  $.ajax({
+    url: '/star/'+kidID,
+    method: 'POST',
+    success:function(data){
+      $('<i class="fa fa-star fa-4x" aria-hidden="true"></i>').css('color', 'green').addClass('star-ani').insertBefore(self);
+      redTotal++;
+    }, error: function(data){
+      console.log(data);
+    }
+  });
 });
 
+
 $('.red').on("click", function(){
-  $('<i class="fa fa-star fa-4x" aria-hidden="true"></i>').css('color', 'red').addClass('star-ani').insertBefore(this);
-  redTotal++;
-  console.log(redTotal);
+  var kidID = $(this).data('id');
+  var self = this;
+  $.ajax({
+    url: '/star/'+kidID,
+    method: 'POST',
+    success:function(data){
+      $('<i class="fa fa-star fa-4x" aria-hidden="true"></i>').css('color', 'red').addClass('star-ani').insertBefore(self);
+      redTotal++;
+    }, error: function(data){
+      console.log(data);
+    }
+  });
 });
 
 $('.blue').on("click", function(){
@@ -76,11 +108,32 @@ $('.purple').on("click", function(){
   console.log(purpleTotal);
 });
 
+$('#new-kid').on('submit',function(e){
+  e.preventDefault();
+  // ajax call to server to create a new kid.
+  var kidName = $(this).find('input').val();
+  var kidColor = $(this).find('select option:selected').val();
+  var kidData = { 'name': kidName, 'color': kidColor };
+  $.ajax({
+  url: '/new',
+  data: kidData,
+  success: function(data){
+    kidData['colo']
+}
+});
 
 
 // use this to target the DOM element post initial load
 $(document).on("click", ".fa-star", function(){
-    $(this).remove();
+    var self = this;
+    var kidID = $(this).data('id');
+    $.ajax({
+      url: '/star/'+kidID,
+      method: 'DELETE',
+      success: function(data){
+        $(self).remove();
+      }
+    })
 });
 
 

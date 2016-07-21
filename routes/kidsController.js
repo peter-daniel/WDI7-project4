@@ -55,6 +55,26 @@ router.route('/new')
   	});
   });
 
+//DELETE ALL kids
+// mongoose.model('Kid').find({}).remove().exec(function(err, data){
+// console.log(data);
+// });
+
+
+
+
+router.route('/star/:id')
+  .post(function(req, res, next){
+    mongoose.model('Kid').findOneAndUpdate({_id: req.params.id}, { $inc: { day1: 1 }}, function(err, kid){
+      if(err) res.status(500).json(err);
+      res.status(200).json({success: true});
+    });
+  }).delete(function(req, res, next){
+    mongoose.model('Kid').findOneAndUpdate({_id: req.params.id}, { $inc: { day1: -1 }}, function(err, kid){
+      if(err) res.status(500).json(err);
+      res.status(200).json({success: true});
+    });
+  })
 
 // function updateKid(req, res){
 //   var id = req.params.id;
@@ -96,15 +116,18 @@ router.route('/new')
   });
 
 
-router.route('/delete')
+router.route('/delete/:id')
   .delete(function (req, res, next){
     var id = req.params.id;
     mongoose.model('Kid').findOneAndRemove({_id: id}, function(error) {
-      if (error) res.status(404).send({message: 'There are no kids with that name'});
-      res.status(204);
-    });
+      if (error) {
+        res.status(404).send({message: 'There are no kids with that name'});
+  } else {
+    res.json({success: true});
+  }
     return;
   });
+});
 
 
 
