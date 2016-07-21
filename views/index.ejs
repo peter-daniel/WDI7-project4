@@ -17,7 +17,7 @@
 <body>
 
     <header>
-        <button id="tally-btn" class="btn-mid">Star tally</button>
+        <button id="tally-btn" class="btn-mid">star tally</button>
         <button id="addkids-btn" class="btn-mid" style="width: 300px;">add kids</button>
         <!-- <button id="refresh-btn" class="btn-mid">refresh</button> -->
     </header>
@@ -86,9 +86,9 @@
 
             <div class="add-kids-form">
                 <form id="new-kid" class="flex_row" action="/new" method="post">
-                    <input type="text" name="kid_name" class='text-field' autofocus=true placeholder='Kid name' />
+                    <input type="text" name="kid_name" class='text-field' autofocus=true placeholder='kid name' />
                     <select name="star_color">
-                        <option disabled selected class="one">Choose a color</option>
+                        <option disabled selected class="one">choose a colour</option>
                         <option value="pink">pink</option>
                         <option value="red">red</option>
                         <option value="orange">orange</option>
@@ -98,7 +98,7 @@
                         <option value="blue">blue</option>
                     </select>
                     <!-- <input type="text" name="day_1" class='text-field sml' autofocus=true placeholder='stars' /> -->
-                    <button class="btn-large kid-add-button" type="submit">Add</button>
+                    <button class="btn-large kid-add-button" type="submit">add</button>
                 </form>
             </div>
 
@@ -114,7 +114,7 @@
     <% if (kids.length < 1){ %>
         <div class='start-message'>
             <i style="transform: rotate(50deg); margin-left: 30%;"class="fa fa-arrow-up fa-2x" aria-hidden="true"></i>
-            <br> Add kids and start staring
+            <br> add kids and start starring
         </div>
         <% } else { %>
             <div class="kids">
@@ -135,16 +135,26 @@
             </div>
             <% } %>
 
+<!-- BACKGROUND IMAGE -->
+  <div class="background-blend"></div>
 
 
+<!-- STAR ANIMATION -->
+
+<!-- <div id="starAnimation">
+  <svg id="star" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+       viewBox="0 0 291.3 277.3" enable-background="new 0 0 291.3 277.3" xml:space="preserve">
+    <polygon fill="green" points="145.5,0.2 185.2,99.4 291,105.9 209.7,174.9 235.4,276.9 145.5,221.6 55.6,276.9 81.2,174.9 0,105.9 105.8,99.4 "/>
+  </svg>
+</div> -->
 
 
-
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
-                <script src="../js/script.js"></script>
-                <script src="../js/modal.js"></script>
-                <script src="../js/select_options.js"></script>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+  <script src="../js/script.js"></script>
+  <script src="../js/modal.js"></script>
+  <script src="../js/select_options.js"></script>
 </body>
 
 </html>

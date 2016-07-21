@@ -26,7 +26,7 @@ $('select').each(function () {
     }).insertAfter($styledSelect);
 
     // Insert a list item into the unordered list for each select option
-    for (var i = 0; i < numberOfOptions; i++) {
+    for (var i = 1; i < numberOfOptions; i++) {
         $('<li />', {
             text: $this.children('option').eq(i).text(),
             rel: $this.children('option').eq(i).val()

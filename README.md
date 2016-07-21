@@ -1,12 +1,12 @@
 # BeGood - star chart 
-###- encourage kids to contribute 
+###Encourage kids to contribute
 
 
 Initial data flow sketches
-![layout idea](screengrabs/wf_01.jpg)
+!(screengrabs/wf_02.jpg)
 
 Initial interface wireframe
-!(screengrabs/wf_02.jpg)
+!(screengrabs/wf_01.jpg)
 
 
 ## Explanation
