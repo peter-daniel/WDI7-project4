@@ -26,8 +26,7 @@ For better communal visibly the site can be set as a desktop screen saver on the
 
 - easy to use
 - no printouts
-- no printouts
-- no sicker boxes or ink stamps
+- no sticker boxes or ink stamps
 - accessible anywhere (mobile version in development)
 - instant animated/sound rewards for stars collected (in development)
 
