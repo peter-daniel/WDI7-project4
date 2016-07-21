@@ -33,9 +33,12 @@ router.route('/')
     });
   });
 
+//ADD AND DELETE STARS USING THE MONGO INC METHOD
 
 router.route('/star/:id')
   .post(function(req, res, next){
+    //The $inc operator increments a field by a specified value
+    //https://docs.mongodb.com/manual/reference/operator/update/inc/
     mongoose.model('Kid').findOneAndUpdate({_id: req.params.id}, { $inc: { day1: 1 }}, function(err, kid){
       if(err) res.status(500).json(err);
       res.status(200).json({success: true});

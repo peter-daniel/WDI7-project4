@@ -77,7 +77,7 @@ $('#new-kid').on('submit', function(e) {
          var kidContainer = $('<div>').addClass('kid').attr('data-id', data._id);
          kidContainer.append(
             $('<div>').addClass(data.starColor).append(
-               $('<p>').addClass('kids-name-main').text(data.kidName)
+            $('<p>').addClass('kids-name-main').text(data.kidName)
             )
          );
          $('.kids').append(kidContainer);
@@ -120,7 +120,7 @@ $('.red').on("click", function() {
          // increase star count
          redTotal++;
          // check if 5 starts have been collected
-         checkFive();
+        //  checkFive();
       },
       error: function(data) {
          console.log(data);
@@ -138,7 +138,7 @@ $('.green').on("click", function() {
       success: function(data) {
          $('<i class="fa fa-star fa-4x green-counter" aria-hidden="true"></i>').css('color', 'green').addClass('star-ani').insertBefore(self);
          redTotal++;
-         checkFive();
+        //  checkFive();
       },
       error: function(data) {
          console.log(data);
@@ -156,7 +156,7 @@ $('.blue').on("click", function() {
       success: function(data) {
          $('<i class="fa fa-star fa-4x blue-counter" aria-hidden="true"></i>').css('color', 'blue').addClass('star-ani').insertBefore(self);
          redTotal++;
-         checkFive();
+        //  checkFive();
       },
       error: function(data) {
          console.log(data);
@@ -173,7 +173,7 @@ $('.orange').on("click", function() {
       success: function(data) {
          $('<i class="fa fa-star fa-4x orange-counter" aria-hidden="true"></i>').css('color', 'orange').addClass('star-ani').insertBefore(self);
          redTotal++;
-         checkFive();
+        //  checkFive();
       },
       error: function(data) {
          console.log(data);
@@ -190,7 +190,7 @@ $('.black').on("click", function() {
       success: function(data) {
          $('<i class="fa fa-star fa-4x black-counter" aria-hidden="true"></i>').css('color', 'black').addClass('star-ani').insertBefore(self);
          redTotal++;
-         checkFive();
+        //  checkFive();
       },
       error: function(data) {
          console.log(data);
@@ -207,7 +207,7 @@ $('.pink').on("click", function() {
       success: function(data) {
          $('<i class="fa fa-star fa-4x pink-counter" aria-hidden="true"></i>').css('color', 'pink').addClass('star-ani').insertBefore(self);
          redTotal++;
-         checkFive();
+        //  checkFive();
       },
       error: function(data) {
          console.log(data);
@@ -224,7 +224,7 @@ $('.purple').on("click", function() {
       success: function(data) {
          $('<i class="fa fa-star fa-4x purple-counter" aria-hidden="true"></i>').css('color', 'purple').addClass('star-ani').insertBefore(self);
          redTotal++;
-         checkFive();
+        //  checkFive();
       },
       error: function(data) {
          console.log(data);
@@ -238,7 +238,7 @@ $('.purple').on("click", function() {
 
 
 
-// DELETE STARS
+// DELETE STARS - DOCUMENT CALL COZ STARS ARE NOT PRESENT ON LOAD
 $(document).on("click", ".fa-star", function() {
    var self = this;
    var kidID = $(this).data('id');
