@@ -1,6 +1,6 @@
 * {
     font-family: 'Open Sans', sans-serif;
-    /*border: 1px solid black;*/
+    border: 1px solid black;
 }
 *:focus {
     outline: 0;
@@ -131,7 +131,7 @@ header {
     font-size: 20px;
 }
 .blue, .red, .orange, .green, .black, .pink, .purple {
-    margin-top: -10px;
+    margin-top: 10px;
     cursor: pointer;
     height: 150px;
 }
@@ -253,8 +253,6 @@ i {
         transform: rotate(359deg);
     }
 }
-
-
 
 
 .kids {

@@ -63,7 +63,6 @@ $('#new-kid').on('submit', function(e) {
             )
          );
          $('.kids').append(kidContainer);
-
          console.log(data);
       }
    });
@@ -114,11 +113,10 @@ $('.starBase').on("click", function() {
       method: 'POST',
       success: function(data) {
         //add dom elements
-         $('<i class="fa fa-star fa-4x red-counter" aria-hidden="true"></i>').css('color', starColour).addClass('star-ani').insertBefore(self);
-         // increase star count concantinate the
+         $('<i class="fa fa-star fa-4x red-counter star-ani" aria-hidden="true"></i>').css('color', starColour).insertBefore(self);
+         // increase star count concantinate the increase the right counter
          var starCount = starColour+'Total';
          console.log(starCount);
-
          starCount++;
          // check if 5 starts have been collected
          checkFive();
@@ -133,7 +131,6 @@ $('.starBase').on("click", function() {
 // //////////////////////////////////////////////////
 // //////////////////////////////////////////////////
 
-
 // DELETE STARS - DOCUMENT CALL COZ STARS ARE NOT PRESENT ON LOAD
 $(document).on("click", ".fa-star", function() {
    var self = this;
@@ -143,6 +140,8 @@ $(document).on("click", ".fa-star", function() {
       method: 'DELETE',
       success: function(data) {
          $(self).remove();
+         $('#fiveStarsAni p').text('');
+         $('#fiveStarsAni').css('display', 'none');
       }
    });
 });
