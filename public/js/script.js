@@ -1,4 +1,17 @@
 // check if 5 stars have been collected and trigger an animation
+
+function checkFive() {
+   if ($('i.red-counter').length === 5){
+     var fiveStarKid = $('.red').text();
+     $('#fiveStarsAni p').text(fiveStarKid);
+     $('#fiveStarsAni').css('display', 'block');
+      console.log(fiveStarKid);
+    }  else {
+      $('#fiveStarsAni p').text('');
+      $('#fiveStarsAni').css('display', 'none');
+   }
+}
+
 // function checkFive() {
 //    if (
 //       ($('i.orange-counter').length === 5) ||
@@ -9,14 +22,10 @@
 //       ($('i.purple-counter').length === 5) ||
 //       ($('i.green-counter').length === 5)
 //    ) {
-//      $('#starAnimation').css('display', 'block');
 //       console.log("yay");
 //    }
 // }
 
-// $('#starAnimation').click(function(){
-//   $('#starAnimation').css('display', 'none');
-// });
 
 // get the number of stars collected and save in variable
 var orangePut = $('<p>').text($('i.orange-counter').length);
@@ -28,34 +37,6 @@ var purplePut = $('<p>').text($('i.purple-counter').length);
 var greenPut = $('<p>').text($('i.green-counter').length);
 
 
-
-// $('#refresh-btn').click(function() {
-//    location.reload();
-// });
-//
-
-// delete kid from the modal view and effect the main interface with ajax
-$('.delete-kid').on('click', function() {
-   var kidID = $(this).data('id');
-   var self = this;
-   $.ajax({
-      url: '/delete/' + kidID,
-      method: 'DELETE',
-      success: function(data) {
-         $(self).parent().remove();
-         $('.kid[data-id="' + kidID + '"]').remove();
-      }
-   });
-});
-
-
-// $('#start-btn').on('click', function() {
-//    $('.add-kids-view-layer').css('display', 'none');
-// });
-//
-// $(document).on("click", ".delete-btn", function() {
-//    console.log("click delete");
-// });
 
 
 // NEW KID AJAX
@@ -76,13 +57,30 @@ $('#new-kid').on('submit', function(e) {
         // add new dom elements pre page refresh
          var kidContainer = $('<div>').addClass('kid').attr('data-id', data._id);
          kidContainer.append(
-            $('<div>').addClass(data.starColor).append(
+           // starBase class added to target and dry code
+            $('<div>').addClass(data.starColor, 'starBase').append(
             $('<p>').addClass('kids-name-main').text(data.kidName)
             )
          );
          $('.kids').append(kidContainer);
 
          console.log(data);
+      }
+   });
+});
+
+
+
+// delete kid from the modal view and effect the main interface with ajax
+$('.delete-kid').on('click', function() {
+   var kidID = $(this).data('id');
+   var self = this;
+   $.ajax({
+      url: '/delete/' + kidID,
+      method: 'DELETE',
+      success: function(data) {
+         $(self).parent().remove();
+         $('.kid[data-id="' + kidID + '"]').remove();
       }
    });
 });
@@ -105,22 +103,25 @@ var purpleTotal = 0;
 //////////////////////////////////////////////////
 
 
-// WILL DRY THE BELOW UP IN TIME!
-
-
-$('.red').on("click", function() {
+$('.starBase').on("click", function() {
    var kidID = $(this).data('id');
+   // get the class colour of the starbase clicked on
+   var starColour = $(this).attr('class').split(' ')[0];
    var self = this;
+   console.log(starColour);
    $.ajax({
       url: '/star/' + kidID,
       method: 'POST',
       success: function(data) {
         //add dom elements
-         $('<i class="fa fa-star fa-4x red-counter" aria-hidden="true"></i>').css('color', 'red').addClass('star-ani').insertBefore(self);
-         // increase star count
-         redTotal++;
+         $('<i class="fa fa-star fa-4x red-counter" aria-hidden="true"></i>').css('color', starColour).addClass('star-ani').insertBefore(self);
+         // increase star count concantinate the
+         var starCount = starColour+'Total';
+         console.log(starCount);
+
+         starCount++;
          // check if 5 starts have been collected
-        //  checkFive();
+         checkFive();
       },
       error: function(data) {
          console.log(data);
@@ -129,113 +130,8 @@ $('.red').on("click", function() {
 });
 
 
-$('.green').on("click", function() {
-   var kidID = $(this).data('id');
-   var self = this;
-   $.ajax({
-      url: '/star/' + kidID,
-      method: 'POST',
-      success: function(data) {
-         $('<i class="fa fa-star fa-4x green-counter" aria-hidden="true"></i>').css('color', 'green').addClass('star-ani').insertBefore(self);
-         redTotal++;
-        //  checkFive();
-      },
-      error: function(data) {
-         console.log(data);
-      }
-   });
-});
-
-
-$('.blue').on("click", function() {
-   var kidID = $(this).data('id');
-   var self = this;
-   $.ajax({
-      url: '/star/' + kidID,
-      method: 'POST',
-      success: function(data) {
-         $('<i class="fa fa-star fa-4x blue-counter" aria-hidden="true"></i>').css('color', 'blue').addClass('star-ani').insertBefore(self);
-         redTotal++;
-        //  checkFive();
-      },
-      error: function(data) {
-         console.log(data);
-      }
-   });
-});
-
-$('.orange').on("click", function() {
-   var kidID = $(this).data('id');
-   var self = this;
-   $.ajax({
-      url: '/star/' + kidID,
-      method: 'POST',
-      success: function(data) {
-         $('<i class="fa fa-star fa-4x orange-counter" aria-hidden="true"></i>').css('color', 'orange').addClass('star-ani').insertBefore(self);
-         redTotal++;
-        //  checkFive();
-      },
-      error: function(data) {
-         console.log(data);
-      }
-   });
-});
-
-$('.black').on("click", function() {
-   var kidID = $(this).data('id');
-   var self = this;
-   $.ajax({
-      url: '/star/' + kidID,
-      method: 'POST',
-      success: function(data) {
-         $('<i class="fa fa-star fa-4x black-counter" aria-hidden="true"></i>').css('color', 'black').addClass('star-ani').insertBefore(self);
-         redTotal++;
-        //  checkFive();
-      },
-      error: function(data) {
-         console.log(data);
-      }
-   });
-});
-
-$('.pink').on("click", function() {
-   var kidID = $(this).data('id');
-   var self = this;
-   $.ajax({
-      url: '/star/' + kidID,
-      method: 'POST',
-      success: function(data) {
-         $('<i class="fa fa-star fa-4x pink-counter" aria-hidden="true"></i>').css('color', 'pink').addClass('star-ani').insertBefore(self);
-         redTotal++;
-        //  checkFive();
-      },
-      error: function(data) {
-         console.log(data);
-      }
-   });
-});
-
-$('.purple').on("click", function() {
-   var kidID = $(this).data('id');
-   var self = this;
-   $.ajax({
-      url: '/star/' + kidID,
-      method: 'POST',
-      success: function(data) {
-         $('<i class="fa fa-star fa-4x purple-counter" aria-hidden="true"></i>').css('color', 'purple').addClass('star-ani').insertBefore(self);
-         redTotal++;
-        //  checkFive();
-      },
-      error: function(data) {
-         console.log(data);
-      }
-   });
-});
-
-//////////////////////////////////////////////////
-//////////////////////////////////////////////////
-
-
+// //////////////////////////////////////////////////
+// //////////////////////////////////////////////////
 
 
 // DELETE STARS - DOCUMENT CALL COZ STARS ARE NOT PRESENT ON LOAD

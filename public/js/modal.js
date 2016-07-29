@@ -38,6 +38,7 @@ $(window).click(function(e) {
 
 // get number of stars collected for tally
 function checkAndAppend() {
+  //
   var orangePut = $('<p>').text($('i.orange-counter').length);
    var redPut = $('<p>').text($('i.red-counter').length);
    var bluePut = $('<p>').text($('i.blue-counter').length);
@@ -45,7 +46,7 @@ function checkAndAppend() {
    var blackPut = $('<p>').text($('i.black-counter').length);
    var purplePut = $('<p>').text($('i.purple-counter').length);
    var greenPut = $('<p>').text($('i.green-counter').length);
-   console.log(greenPut);
+   
    //check if total has been appended yet and if so delete it first before appending - to stop replication
    if ($('#orange').children().length > 0) {
       $('#orange').children().remove();
