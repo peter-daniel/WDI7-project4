@@ -107,22 +107,22 @@ $('.starBase').on("click", function() {
    // get the class colour of the starbase clicked on
    var starColour = $(this).attr('class').split(' ')[0];
    var self = this;
-   console.log(starColour);
+  //  console.log(starColour);
    $.ajax({
       url: '/star/' + kidID,
       method: 'POST',
       success: function(data) {
         //add dom elements
-         $('<i class="fa fa-star fa-4x red-counter star-ani" aria-hidden="true"></i>').css('color', starColour).insertBefore(self);
+         $('<i class="fa fa-star fa-4x red-counter star-ani" aria-hidden="true"></i>').attr('data-id', data._id).css('color', starColour).insertBefore(self);
          // increase star count concantinate the increase the right counter
          var starCount = starColour+'Total';
-         console.log(starCount);
+        //  console.log(starCount);
          starCount++;
          // check if 5 starts have been collected
          checkFive();
       },
       error: function(data) {
-         console.log(data);
+        //  console.log(data);
       }
    });
 });

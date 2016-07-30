@@ -26,7 +26,7 @@ router.route('/')
       if (error) {
         return res.status(404).json({message: 'There are no kids added.'});
       } else {
-        res.render('index', {
+        return res.render('index', {
           'kids' : kids
         });
       }
@@ -40,13 +40,13 @@ router.route('/star/:id')
     //The $inc operator increments a field by a specified value
     //https://docs.mongodb.com/manual/reference/operator/update/inc/
     mongoose.model('Kid').findOneAndUpdate({_id: req.params.id}, { $inc: { day1: 1 }}, function(err, kid){
-      if(err) res.status(500).json(err);
-      res.status(200).json({success: true});
+      if(err) return res.status(500).json(err);
+      return res.status(200).json(kid);
     });
   }).delete(function(req, res, next){
     mongoose.model('Kid').findOneAndUpdate({_id: req.params.id}, { $inc: { day1: -1 }}, function(err, kid){
-      if(err) res.status(500).json(err);
-      res.status(200).json({success: true});
+      if(err) return res.status(500).json(err);
+      return res.status(200).json({success: true});
     });
   });
 
@@ -66,10 +66,10 @@ router.route('/new')
       day7: 0
   	}, function(err, kid){
   		if(err){
-  			res.status(403).send({message: err.errmsg});
+  			return res.status(403).send({message: err.errmsg});
   		} else {
         console.log(kid);
-        res.json(kid);
+        return res.json(kid);
   		}
   	});
   });
@@ -80,9 +80,9 @@ router.route('/delete/:id')
     var id = req.params.id;
     mongoose.model('Kid').findOneAndRemove({_id: id}, function(error) {
       if (error) {
-        res.status(404).send({message: 'There are no kids with that name'});
+        return res.status(404).send({message: 'There are no kids with that name'});
   } else {
-    res.json({success: true});
+    return res.json({success: true});
   }
     return;
   });

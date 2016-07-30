@@ -1,6 +1,6 @@
 * {
     font-family: 'Open Sans', sans-serif;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
 }
 *:focus {
     outline: 0;
@@ -10,6 +10,11 @@ body {
     /*background-image: url('../background_star.png');
     background-repeat: no-repeat;
     background-position: 50% -15%;*/
+}
+
+i{
+  margin: 0 auto;
+  width: 120px;
 }
 
 #fiveStarsAni{
