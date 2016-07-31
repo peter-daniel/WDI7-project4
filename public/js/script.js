@@ -1,16 +1,5 @@
 // check if 5 stars have been collected and trigger an animation
 
-function checkFive() {
-   if ($('i.red-counter').length === 5){
-     var fiveStarKid = $('.red').text();
-     $('#fiveStarsAni p').text(fiveStarKid);
-     $('#fiveStarsAni').css('display', 'block');
-      console.log(fiveStarKid);
-    }  else {
-      $('#fiveStarsAni p').text('');
-      $('#fiveStarsAni').css('display', 'none');
-   }
-}
 
 // function checkFive() {
 //    if (
@@ -94,7 +83,7 @@ var blueTotal = 0;
 var orangeTotal = 0;
 var pinkTotal = 0;
 var purpleTotal = 0;
-
+console.log(purpleTotal);
 
 
 // use the 'color' from database selection to target star adds
@@ -114,12 +103,26 @@ $('.starBase').on("click", function() {
       success: function(data) {
         //add dom elements
          $('<i class="fa fa-star fa-4x red-counter star-ani" aria-hidden="true"></i>').attr('data-id', data._id).css('color', starColour).insertBefore(self);
-         // increase star count concantinate the increase the right counter
+         // increase star count concatenate to this star and increase the that counter
+
+
+          // console.log($(self).parent().children().length);
+          // console.log($(self).text());
+
+         // check if 5 stars have been collected and show kid name with message
+         if ($(self).parent().children().length === 6){
+           var fiveStarKid = $(self).text();
+           $('#fiveStarsAni p').text(fiveStarKid);
+           $('#fiveStarsAni').css('display', 'block');
+         } else {
+           $('#fiveStarsAni p').text('');
+           $('#fiveStarsAni').css('display', 'none');
+         }
+
+
          var starCount = starColour+'Total';
-        //  console.log(starCount);
-         starCount++;
-         // check if 5 starts have been collected
-         checkFive();
+         starCount = parseInt(starCount++);
+
       },
       error: function(data) {
         //  console.log(data);
