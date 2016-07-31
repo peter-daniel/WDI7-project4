@@ -111,9 +111,9 @@ $('.starBase').on("click", function() {
 
          // check if 5 stars have been collected and show kid name with message
          if ($(self).parent().children().length === 6){
-           var fiveStarKid = $(self).text();
-           $('#fiveStarsAni p').text(fiveStarKid);
-           $('#fiveStarsAni').css('display', 'block');
+           var fiveStarKid = $(self).text().toUpperCase();
+           $('.fiveStarsAni-content').html('WELL DONE<br>'+ '<span>'+fiveStarKid+'!</span>');
+           $('#fiveStarsAni').css('display', 'block').delay();
          } else {
            $('#fiveStarsAni p').text('');
            $('#fiveStarsAni').css('display', 'none');

@@ -34,6 +34,10 @@ $(window).click(function(e) {
       // $('#addkids-modal').css('display', 'none');
       location.reload();
    }
+   if (target.is('#fiveStarsAni')) {
+      // $('#addkids-modal').css('display', 'none');
+      location.reload();
+   }
 });
 
 // get number of stars collected for tally
@@ -46,7 +50,7 @@ function checkAndAppend() {
    var blackPut = $('<p>').text($('i.black-counter').length);
    var purplePut = $('<p>').text($('i.purple-counter').length);
    var greenPut = $('<p>').text($('i.green-counter').length);
-   
+
    //check if total has been appended yet and if so delete it first before appending - to stop replication
    if ($('#orange').children().length > 0) {
       $('#orange').children().remove();
